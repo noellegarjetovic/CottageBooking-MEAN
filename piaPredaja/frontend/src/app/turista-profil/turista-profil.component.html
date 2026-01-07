@@ -1,0 +1,75 @@
+<app-meni></app-meni>
+
+<div class="profile-container">
+  <div class="profile">
+    <h2>Moj profil</h2>
+
+    <!-- Poruka -->
+    <div class="message" *ngIf="message" [class.error]="message.includes('greške')">
+      {{message}}
+    </div>
+
+    <div *ngIf="!editMode">
+      <img [src]="tourist.slika" alt="Profilna slika" width="150" height="150">
+      <p><b>Ime:</b> {{tourist.ime}}</p>
+      <p><b>Prezime:</b> {{tourist.prezime}}</p>
+      <p><b>Adresa:</b> {{tourist.adresa}}</p>
+      <p><b>Email:</b> {{tourist.email}}</p>
+      <p><b>Telefon:</b> {{tourist.telefon}}</p>
+      <p><b>Kreditna kartica:</b> {{tourist.kartica}}</p>
+
+      <button (click)="toggleEdit()">Ažuriraj profil</button>
+    </div>
+
+    <div *ngIf="editMode">
+      <div class="form-group">
+        <label>Ime: *</label>
+        <input [(ngModel)]="tourist.ime" [class.error]="validationErrors.ime">
+        <div class="error-message">{{validationErrors.ime}}</div>
+      </div>
+
+      <div class="form-group">
+        <label>Prezime: *</label>
+        <input [(ngModel)]="tourist.prezime" [class.error]="validationErrors.prezime">
+        <div class="error-message">{{validationErrors.prezime}}</div>
+      </div>
+
+      <div class="form-group">
+        <label>Adresa: *</label>
+        <input [(ngModel)]="tourist.adresa" [class.error]="validationErrors.adresa">
+        <div class="error-message">{{validationErrors.adresa}}</div>
+      </div>
+
+      <div class="form-group">
+        <label>Email: *</label>
+        <input [(ngModel)]="tourist.email" [class.error]="validationErrors.email">
+        <div class="error-message">{{validationErrors.email}}</div>
+      </div>
+
+      <div class="form-group">
+        <label>Telefon: *</label>
+        <input [(ngModel)]="tourist.telefon" [class.error]="validationErrors.telefon">
+        <div class="error-message">{{validationErrors.telefon}}</div>
+      </div>
+
+      <div class="form-group">
+        <label>Kreditna kartica: *</label>
+        <input [(ngModel)]="tourist.kartica" [class.error]="validationErrors.kartica">
+        <div class="error-message">{{validationErrors.kartica}}</div>
+      </div>
+
+      <div class="form-group">
+        <label>Profilna slika:</label>
+        <input type="file" (change)="selectedFile($event)" accept="image/png, image/jpeg">
+        <small>Format: JPG/PNG, veličina: 100x100 - 300x300 px</small>
+      </div>
+
+      <div class="form-actions">
+        <button (click)="saveChanges()" >
+          <span >Sačuvaj</span>
+        </button>
+        <button (click)="toggleEdit()">Otkaži</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,136 @@
+/* Container cele stranice */
+.rezervacije-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
+
+/* Naslovi sekcija */
+.rezervacije-container h2 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+}
+
+/* Tabele */
+.rezervacije-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.rezervacije-container th,
+.rezervacije-container td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: left;
+}
+
+.rezervacije-container th {
+  background-color: #3b5998;
+  color: white;
+}
+
+.rezervacije-container tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.rezervacije-container td[data-label]::before {
+  /* za responsive prikaz table na manjim ekranima */
+  content: attr(data-label) ": ";
+  font-weight: bold;
+  display: none;
+}
+
+/* Responsive za table */
+@media screen and (max-width: 700px) {
+  .rezervacije-container table, 
+  .rezervacije-container thead, 
+  .rezervacije-container tbody, 
+  .rezervacije-container th, 
+  .rezervacije-container td, 
+  .rezervacije-container tr { 
+    display: block; 
+  }
+
+  .rezervacije-container tr { margin-bottom: 15px; }
+
+  .rezervacije-container td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .rezervacije-container td[data-label]::before {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 8px;
+  }
+}
+
+/* Forma za komentar */
+.comment-form {
+  background-color: #f0f8ff;
+  padding: 15px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.comment-form h4 {
+  margin-top: 0;
+}
+
+.comment-form textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+  font-family: Arial, sans-serif;
+}
+
+/* Ocene zvezdice */
+.rating {
+  margin-bottom: 10px;
+}
+
+.rating span {
+  cursor: pointer;
+  font-size: 1.5em;
+  color: #ccc;
+  display: inline-block;
+  margin-right: 2px;
+}
+
+.rating span .filled {
+  color: gold;
+}
+
+.rating span .empty {
+  color: #ccc;
+}
+
+/* Buttons */
+.comment-form button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 7px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.comment-form button:hover {
+  background-color: #333;
+}
+.message{
+  color:red
+}

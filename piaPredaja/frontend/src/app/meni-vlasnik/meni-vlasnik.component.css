@@ -1,0 +1,36 @@
+.topbar {
+  width: 100%;
+  background-color: #2d3e50;
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.topbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.topbar li {
+  margin-right: 20px;
+}
+
+.topbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.topbar a.active {
+  text-decoration: underline;
+}
+
+.topbar button {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+}
