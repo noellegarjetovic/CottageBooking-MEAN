@@ -1,0 +1,119 @@
+h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+h3 {
+  margin-top: 25px;
+  font-size: 20px;
+  color: #34495e;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.gallery img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+p {
+  font-size: 16px;
+  margin: 6px 0;
+  color: #555;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+ul li {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+#map {
+  margin-top: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+.booking-step {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.booking-step h3 {
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.booking-step label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.booking-step input,
+.booking-step textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.booking-step textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.booking-step button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2d3e50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.booking-step button:hover {
+  background-color: #1a2733;
+}
+
+.booking-step .error {
+  margin-top: 10px;
+  color: crimson;
+  font-weight: bold;
+  text-align: center;
+}
+
+

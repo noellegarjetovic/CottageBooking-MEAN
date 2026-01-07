@@ -1,0 +1,92 @@
+<app-meni></app-meni>
+<div *ngIf="cottage">
+  <h2>{{cottage.naziv}} - {{cottage.mesto}}</h2>
+
+  <h3>Galerija</h3>
+  <div class="gallery">
+    <img *ngFor="let slika of cottage.slike" [src]="slika" />
+  </div>
+
+  <h3>Usluge</h3>
+  <p>{{cottage.usluge}}</p>
+
+  <h3>Cene</h3>
+  <p>Leto: {{cottage.cenaLeto}} RSD / noć</p>
+  <p>Zima: {{cottage.cenaZima}} RSD / noć</p>
+
+  <h3>Kontakt</h3>
+  <p>Vlasnik: {{cottage.vlasnik}}</p>
+  <p>Telefon: {{cottage.telefon}}</p>
+
+  <h3>Ocene</h3>
+  <ul>
+    <li *ngFor="let o of cottage.ocene">{{o.korime}}:{{o.ocena}}</li>
+  </ul>
+
+  <h3>Komentari</h3>
+  <ul>
+    <li *ngFor="let k of cottage.komentari">{{k.korime}}:{{k.tekst}}</li>
+  </ul>
+
+  <h3>Mapa</h3>
+  <div id="map" #mapContainer style="width:100%;height:400px;"></div>
+</div>
+
+
+
+<div *ngIf="step === 1" class="booking-step">
+  <h3>Zakazivanje Vikendice</h3>
+
+  <label>Datum dolaska:</label>
+  <input type="date" [(ngModel)]="arrivalDate">
+
+  <label>Vreme dolaska:</label>
+  <input type="time" [(ngModel)]="arrivalTime">
+
+  <label>Datum odlaska:</label>
+  <input type="date" [(ngModel)]="departureDate">
+
+  <label>Vreme odlaska:</label>
+  <input type="time" [(ngModel)]="departureTime">
+
+  <label>Broj odraslih:</label>
+  <input type="number" [(ngModel)]="adults" min="1">
+
+  <label>Broj dece:</label>
+  <input type="number" [(ngModel)]="children" min="0">
+
+  <div *ngIf="message" class="error">{{ message }}</div>
+
+  <button (click)="nextStep()">Dalje</button>
+</div>
+
+<div *ngIf="step === 2" class="booking-step">
+  <h3>Potvrda rezervacije</h3>
+
+  <p><b>Vikendica:</b> {{cottage.naziv}}</p>
+  <p><b>Mesto:</b> {{cottage.mesto}}</p>
+  <p><b>Datum dolaska:</b> {{arrivalDate}} u {{arrivalTime}}</p>
+  <p><b>Datum odlaska:</b> {{departureDate}} u {{departureTime}}</p>
+  <p><b>Broj odraslih:</b> {{adults}}</p>
+  <p><b>Broj dece:</b> {{children}}</p>
+  <p><b>Ukupna cena:</b> {{price}}RSD</p>
+
+  <h4>Plaćanje</h4>
+  <label>Broj kartice:
+    <input type="text" [(ngModel)]="cardNumber" maxlength="16">
+  </label>
+
+  <h4>Dodatni zahtevi (opciono)</h4>
+  <textarea [(ngModel)]="additionalNotes" maxlength="500" placeholder="Unesite dodatne zahteve..."></textarea>
+
+  <div class="buttons">
+    <button (click)="previousStep()">Nazad</button>
+    <button (click)="submitBooking()">Potvrdi rezervaciju</button>
+  </div>
+
+  <p class="error" *ngIf="message">{{message}}</p>
+  <p class="success" *ngIf="successMessage">{{successMessage}}</p>
+</div>
+
+
+
